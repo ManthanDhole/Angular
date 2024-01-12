@@ -1,0 +1,128 @@
+Revision elements
+
+* The Flow of Angular loading the page in the browser
+Angular Project => build and bundle => index.html => angular.json => main.ts => AppModule => AppComponent => app.component.html
+
+-------------------------------------------------------------------------------------
+How does angular application works internally and bootstraps our app?
+
+Bootstrapping is the process of Initializing or Loading the Angular application.
+When the angular project starts, it firstly loads the index.html page to the browser. The index.html file does not contain any javascript or stylesheet. The body of the index.html file only has the app-root tag initially.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AngularEkart</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+
+What is this app-root tag and how does angular knows what is to be rendered in place of this tag?
+When the `ng serve` command is executed, the application is compiled, bundled and injected in the index.html file and directly loaded in the memory and directly starts it.
+
+To view the compiled application we need to compile the application using `ng build` command
+Here we can see the injected script files.
+
+<!doctype html>
+<html lang="en" data-critters-container>
+<head>
+  <meta charset="utf-8">
+  <title>AngularEkart</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles-5INURTSO.css"></head>
+<body>
+  <app-root></app-root>
+<script src="polyfills-RX4V3J3S.js" type="module"></script>
+<script src="main-DRCFGOYY.js" type="module"></script>
+</body>
+</html>
+
+There are 5 script files:
+1. runtime.js: It is the webpack runtime file.
+2. polyfills.js: A script that allows support of the modern compile JS on the older versions of browsers making it compatible to render across different browsers.
+3. main.js: This is the code of the application. All the .ts code is compiled to this main.js file and loaded in the browser. 
+4. vendor.js: This file contains the scripts from the angular library and all the 3rd party libraries used in the application.
+5. style.js: This is the style.css file bundled and converted to js to be injected in browser.
+
+What is a webpack?
+Angular CLI uses the webpack to bundle the application. It a Bundler which scans our application looking for js files and merges them to a single js file. It has the ability to bundle any kind of file like js, css, images, html, etc.
+
+After the bundle is created the angular cli injects the bundled javascript & css files in the index.html file.
+When the index.html file is loaded in the browser, the Angular core libraries and 3rd party libraries are also loaded by that time.
+
+Now Angular need to locate the main entry point to the application.
+For this it searches in the angular.json file and the main.ts is identified under the "browser" option as the entrypoint for the application.
+
+"options": {
+            "outputPath": "dist/angular-ekart",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+
+From here that application goes to execute the main.ts file
+Here the browser is being loaded with the AppComponent as the root component. Previously the Module was loaded before Angular 17. 
+
+Angular 17
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));
+
+Angular 16 and below
+platformBrowserDynamic() => Responsible for loading the application in desktop's browser
+    .bootstrapModule(AppModule) => Angular will move to the App Module class to render it in the browser
+    .catch(err => console.error(err));
+
+From here we move to the AppModule class
+
+@NgModule({
+    declarations: [  => Here we specify the Components, Directives, Pipes which belong to this module
+        AppComponent
+    ],
+    imports: [  => Here we need to list all the external modules required for this application
+        BrowserModule
+    ],
+    providers: [], => Here we register all the services of our application
+    bootstrap: [ AppComponent ] => Here we specify the components that angular should load when the appModule is loaded and the component must be a part of the module mentioned here. Whatever component mentioned here will be loaded when the AppModule is loaded in the Browser
+})
+
+export class AppModule {}
+
+The class is decorated by the @NgModule decorator
+
+
+From here we go to the AppComponent file
+@Component({ 
+  selector: 'app-root', => This property can be used as an HTML element, attribute, class
+  standalone: true,
+  imports: [CommonModule, RouterOutlet],
+  templateUrl: './app.component.html',  => This is the page which will be viewed when the app-root loads in the HTML
+  template: `<tags>     => We can also directly mention the HTML tags instead of entire html page
+                elements/page data
+            </tags>`,
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'Ekart';
+}
+
+* The Flow of Angular loading the page in the browser
+Angular Project => build and bundle => index.html => angular.json => main.ts => AppModule => AppComponent => app.component.html 
