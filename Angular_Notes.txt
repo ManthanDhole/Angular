@@ -4,4 +4,17 @@ Angular Notes
 
 Angular CLI Commands
 1. Create new project: ng new project-name
-2. Compile and Run the project: ng serve 
+2. Compile and Run the project: ng serve
+
+Angular Theory
+1. Single Page Application: When we run an Angular application, only a single index.html page is loaded and rendered in the browser and 
+whenever we navigate around the application in the browser only the content of the index.html will change, the html file will not change itself.
+
+2. Component: A component mainly comprises of 4 file namely, | .ts, .html, .css and .spec.ts |
+The most important file here is .ts file where a Component class is mentioned where a decorator is used as @Component to tell angular that
+this class is a component class. Here we can pass an object to the decorator like: selector, templateUrl, styleUrl, etc.
+Selector can be used as an HTML element which can render the entire Template (HTML), Style/Design (CSS) and Logic (TS) of that component
+
+3. Data Binding: Rendering values dynamically on HTML page from the .ts page. This could be done using Interpolation {{ variable }} which will display
+the value of the variable from the .ts to the HTML page.
+This allows to mix Static HTML code with Dynamic things.
