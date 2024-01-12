@@ -2,11 +2,12 @@ Link to playlist: https://www.youtube.com/playlist?list=PL1BztTYDF-QNlGo5-g65Xj1
 
 Angular Notes
 
-Angular CLI Commands
+* Angular CLI Commands
 1. Create new project: ng new project-name
 2. Compile and Run the project: ng serve
+3. Install the dependencies for the project: npm install
 
-Angular Theory
+* Angular Theory
 1. Single Page Application: When we run an Angular application, only a single index.html page is loaded and rendered in the browser and 
 whenever we navigate around the application in the browser only the content of the index.html will change, the html file will not change itself.
 
@@ -16,5 +17,31 @@ this class is a component class. Here we can pass an object to the decorator lik
 Selector can be used as an HTML element which can render the entire Template (HTML), Style/Design (CSS) and Logic (TS) of that component
 
 3. Data Binding: Rendering values dynamically on HTML page from the .ts page. This could be done using Interpolation {{ variable }} which will display
-the value of the variable from the .ts to the HTML page.
-This allows to mix Static HTML code with Dynamic things.
+the value of the variable from the .ts to the HTML page. This allows to mix Static HTML code with Dynamic things.
+
+* Angular Files and Folder Structure
+1. Node modules: All the third party libraries gets stored on which our application may depend on. Whenever we use npm command to download any libraries the will be stored here. This is purely a development folder and we dont deploy it on production servers or check in this folder in git repositories.
+
+2. package.json:
+How does an application know which dependencies are required for the application to run? : package.json
+
+Difference between dependencies and devDependencies:
+dependencies are those 3rd party libraries on which our application is directly dependent on and uses them which will be rendered on the browser.
+devDependencies are those which defines the external tools that are being used for and while the development of the application which wont be visible on the browser but will be used for other functionality for the application.
+All the dependencies required for the application are mentioned inside the package.json file. When we execute the npm install command, the node package manager looks at this package.json file and downloads all that is mentioned in it.
+
+3. .editorconfig: A file where all the standards/rules are defined to be followed by the team of developers.
+4. .gitignore: To ignore the files/folders of the project which are not supposed to be checked in to the git repositories.
+5. angular.json: All the project related configurations are mentioned in this file, namely, Main entry point, type of project, scripts, etc. 
+6. package-lock.json: It records the exact version of project dependencies and sub dependencies, this ensures that the same dependencies are installed consistently in the application across various environments like production, development, etc.
+7. tsconfig.json: It contains settings for the TypeScript compiler. The TS compiler looks at these settings and then based on it the TS code is compiled to JavaScript that the browsers can understand.
+
+8. src: This folder is the most important, where all the application source code is placed. Every module, component, service is stored here.
+9. app: All the component related code/folders are contained in this folder. In an angular project we can have multiple applications, so the src folder may contain multiple application folders.
+By convention a component consists of 4 files: ts, html, css, spec.ts
+For every application that we create for an angular project, every application will have atleast one component and one module file.
+10. assets: We store all our public static assets like images, icon, text files, etc. Whatever stored here will be available to public and can be accessed using host/assets/file.extension in the url on the browser. 
+11. favicon.ico: Just a simple icon file which will get displayed in the browser.
+12. index.html: This is the main/only html file which is loaded/rendered in the browser when the application runs.
+13. main.ts: This file is the starting point of the Angular application. This is the so called entrypoint (main method) of the application. Here we bootstrap the AppModule.
+14. style.css: All the global styles are added here for the angular application which will be applied for all the components and elements 
