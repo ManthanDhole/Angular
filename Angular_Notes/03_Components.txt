@@ -105,3 +105,9 @@ styles: [
 
 The styles for the element would not be shared even though it is a parent child relationship between the component unless it is mentioned in the styleUrls property of the component decorator.
 All the styles are individual to the components.
+
+In order to apply styles globally for the angular application we need to mention the styles/css elements in the styles.css in the app folder.
+
+In order to apply css to all the html element use `* {}`
+
+You can also import the fonts from google and use the @import decorator to use these fonts as your global css
