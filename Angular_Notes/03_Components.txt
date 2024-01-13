@@ -82,3 +82,26 @@ So where ever you'll use the selector of that component, the template mentioned 
 You can use either template or templateUrl with the selector.
 
 The templateUrl will always be preferred over the template.
+
+Adding Style to the html Elements
+@Component({
+    selector: 'selector-name',
+    templateUrl: 'path-of-an-htmlFile.html',
+    styles: [ 'tag { css-property: values; }' ],
+    styleUrls: [ 'path-of-cssFiles.css' ]
+})
+
+To apply css using element tags, use the tag name directly to in the css file. This will apply the styles for each tag used in the html file.
+
+To apply css using class name, use the .class-name to define its styles in the css file.
+
+To apply css using id of the element, use the #id to define its styles.
+styles: [ 
+    'h3{ margin: 0 20px; color: red; }', 
+    'button{ margin: 5px 20px; padding: 10px; color: blue; }',
+    '.class-name{ color: green; }',
+    '#id-name{ color: blue; }'
+],
+
+The styles for the element would not be shared even though it is a parent child relationship between the component unless it is mentioned in the styleUrls property of the component decorator.
+All the styles are individual to the components.
