@@ -111,3 +111,26 @@ In order to apply styles globally for the angular application we need to mention
 In order to apply css to all the html element use `* {}`
 
 You can also import the fonts from google and use the @import decorator to use these fonts as your global css
+
+Using Bootstrap for the Styling
+To install bootstrap in your application use the following Command
+
+npm i --save bootstrap
+
+After the installation of the bootstrap, it would be available in node_modules folder.
+In order to use any css/js file from the bootstrap, take the path of the file and then mention it in the angular.json file's styles property or import it in the styles.css file.
+
+1. Angular.json styles property
+"styles": [
+    "node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "src/styles.css"
+]
+
+2. Import statement in styles.css
+~.. : is added to go one folder behind to the current folder.
+
+@import "~../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+To uninstall any package from node_modules use the following command
+
+npm uninstall packageName

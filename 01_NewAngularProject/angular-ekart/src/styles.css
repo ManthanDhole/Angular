@@ -3,6 +3,8 @@
 /* Import the google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 
+/* @import "~../node_modules/bootstrap/dist/css/bootstrap.min.css"; */
+
 /* p{
     font-family: monospace;
     font-size: 16px;
