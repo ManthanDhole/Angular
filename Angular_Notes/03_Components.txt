@@ -134,3 +134,17 @@ In order to use any css/js file from the bootstrap, take the path of the file an
 To uninstall any package from node_modules use the following command
 
 npm uninstall packageName
+
+-----------------------------------------------------------
+
+Create Component using Angular CLI
+
+Use the following command to create a component
+ng generate component component-name
+
+This command will 
+1. Create a component class decorated with @Component decorator.
+2. Generate view and styles for that component.
+3. Registers the component in the main module.
+
+To create a child component using ng g c command navigate in the terminal to the folder and then execute the command

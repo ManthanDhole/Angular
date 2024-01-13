@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { TopMenuComponent } from "./top-menu/top-menu.component";
 
 @Component({
     selector: 'app-header',
@@ -11,7 +12,8 @@ import { Component } from "@angular/core";
         // '#idName{ color: blue; }'
     // ],
     styleUrls: [ './header.component.css' ],
-    standalone: true
+    standalone: true,
+    imports: [ TopMenuComponent ]
 })
 
 export class HeaderComponent {
