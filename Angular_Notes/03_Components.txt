@@ -148,3 +148,16 @@ This command will
 3. Registers the component in the main module.
 
 To create a child component using ng g c command navigate in the terminal to the folder and then execute the command
+
+Types of Component Selector
+1. HTML Tag: selector: 'app-name'
+<app-name></app-name>
+
+2. HTML Attribute: selector: '[app-name]'
+<div app-name></div>
+
+3. CSS Class: selector: '.app-name'
+<div class="app-name"></div>
+
+4. ID: selector: '#app-name'
+<div id="app-name"></div>
