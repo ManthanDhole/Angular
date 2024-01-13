@@ -1,0 +1,84 @@
+Angular is a Component base Javascript framework for building client side applications
+
+A component is basically a small piece of User Interface.
+We build individual components and the combine them together to form a complex user interface.
+Every application has at least one component. The root component is called as app component by convention.
+An application is essentially a Tree of components.
+Combining all these components together make the UI.
+We have a parent child relationship between components.
+
+How to Create a Component?
+
+1. Create a Typescript class and export it.
+2. Decorate the class with @Component decorator.
+3. Declare the class in main module file.
+
+The child component must always be inside the parent component folder.
+Naming Convention for component: `folder-name.component.extension`
+ex: header.component.ts
+
+Inside the component.ts file to make it a component we need the following to be added in .ts file.
+1. A class is to be created which can be exported.
+Ex: export class Header {} 
+To use this class in other components we need to export it. This would make us able to import this class in other components.
+
+2. In order to make a simple class a Component, we need to add a decorator @Component to the class file.
+
+import { Component } from "@angular/core"
+
+@Component({
+
+})
+
+export class HeaderComponent {} 
+
+3. Every component must have a View Template which contains selector, template/templateUrl, styles, etc.
+
+@Component({
+    selector: 'app-name',
+    template: '<htmlTags> Element to display </htmlTags>',
+    templateUrl: './ViewFile.html',
+    styles: [ 'DesignFiles.css' ]
+})
+
+4. The angular is not yet aware of the component. Hence we need to tell the angular about the existance of this component and allow us to use it inside the application.
+
+To achieve this, we need to go in the main module class and here declare the custom component.
+
+import { HeaderComponent } from './header/header.component';
+
+@NgModule({
+    declarations: [
+        AppComponent, 
+        HeaderComponent
+    ]
+})
+
+Angular 17 uses StandAlone Component concept where we need not specify/register the component in NgModule, instead we can add a property as @Component.standalone: true in the component.ts file which will be equivalent to declaring the component in NgModule.
+
+Then to import the component we can use it in the following way in other components.
+
+import { HeaderComponent } from './header/header.component';
+@Component({
+    selector: 'app-root',
+    imports: [ HeaderComponent ] => Here we need to specify the Component that we want to import.
+})
+
+Command to create a standalone component
+ng generate component Name --flag --standalone
+
+-------------------------------------------------------
+View Template of Component
+
+The view template of a component is a form of HTML that tells the angular how to render a component.
+
+@Component({
+    selector: 'selector-name',
+    template: '<htmlTags> Elements </htmlTags>',
+    templateUrl: 'path-of-an-htmlFile.html'
+})
+
+So where ever you'll use the selector of that component, the template mentioned with it gets rendered in that place.
+You can use either template or templateUrl with the selector.
+
+The templateUrl will always be preferred over the template.
