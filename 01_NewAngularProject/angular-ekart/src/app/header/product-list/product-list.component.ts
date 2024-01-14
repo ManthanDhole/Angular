@@ -17,9 +17,11 @@ export class ProductListComponent {
       color:'Blue',
       price: 995,
       discount: 10,
-      inStock: 0
+      inStock: 0,
+      image: 'https://media.croma.com/image/upload/v1662424212/Croma%20Assets/Communication/Mobiles/Images/234252_czgdvc.png'
     }
 
+    customerName = "Manthan";
     getDiscount() {
       //In order to access an object we need to specify this. keyword to point our funtion to use object inside this class
       return this.product.price - (this.product.price * this.product.discount) /100
