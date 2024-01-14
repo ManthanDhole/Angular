@@ -1,0 +1,19 @@
+<p>Name: Iphone</p>
+<p>Color: Black</p>
+<p>Price: $999</p>
+<p>Discount: $786</p>
+<br>
+<!-- String Interpolation -->
+<p>Name: {{ name }}</p>
+<p>Color: {{ color }}</p>
+<p>Price: {{ '$' + price }}</p> <!-- This is called as concatenation --> 
+<p>Discount: $786</p>
+<br>
+<!-- String Interpolation (Rendering Object Values) -->
+<p>Name: {{ product.name }}</p>
+<p>Color: {{ product.color }}</p>
+<p>Price: ${{ product.price }}</p>
+<p>Discount: ${{ product.price - (product.price * product.discount) /100 }}</p> <!-- Expression can also be used in Interpolation -->
+<p>Discount: ${{ getDiscount() }}</p> <!-- A function can also be called using in the Interpolation -->
+<p>Discount: ${{ getDiscount().toFixed(2) }}</p> <!-- We can also use Typescript in built methods and functionalities -->
+<p>{{ product.inStock>0 ? 'Only ' + product.inStock + ' products are left' : 'Out of Stock' }}</p> <!-- We can also use Ternary operators in the interpolation -->

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { TopMenuComponent } from "./top-menu/top-menu.component";
+import { ProductListComponent } from "./product-list/product-list.component";
 
 @Component({
     selector: 'app-header',
@@ -13,7 +14,7 @@ import { TopMenuComponent } from "./top-menu/top-menu.component";
     // ],
     styleUrls: [ './header.component.css' ],
     standalone: true,
-    imports: [ TopMenuComponent ]
+    imports: [ TopMenuComponent, ProductListComponent ]
 })
 
 export class HeaderComponent {
