@@ -1,0 +1,26 @@
+2 Types of Data Binding
+1. One Way
+2. Two Way
+
+#1 One Way Data Binding
+
+4 Types of One Way Data Binding
+From Component Class to View Template
+
+1. String Interpolation
+<p>Name: {{ name }}</p>
+
+2. Property Binding
+<img [src]="product.image">
+
+3. Attribute Binding
+<input type="text" [attr.aria-disabled]="product.inStock">
+
+HTML Attribute vs HTML Propery
+Attribute: It represents an initial value and it does not change.
+Property: It represents the current value and it can change.
+
+From View Template to Component Class
+4. Event Binding
+
+#2 Two Way Data Binding

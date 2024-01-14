@@ -3,7 +3,7 @@
 <p>Price: $999</p>
 <p>Discount: $786</p>
 <br>
-<!-- String Interpolation -->
+<!-- String Interpolation: Component Class to View Template -->
 <p>Name: {{ name }}</p>
 <p>Color: {{ color }}</p>
 <p>Price: {{ '$' + price }}</p> <!-- This is called as concatenation --> 
@@ -36,4 +36,7 @@
 <!-- Attribute: It represents an initial value and it does not change -->
 <!-- Property: It represents the current value and it can change -->
 <!-- To bind an attribute, you need to specify the [attr.attribute-name]="value" syntax -->
-<input type="text" [value]="customerName" [attr.aria-disabled]="product.inStock">
+<input type="text" [value]="customerName" [attr.aria-disabled]="product.inStock" placeholder="Customer Name">
+
+<br>
+<!-- Event Binding: View Template to the Component Class -->
