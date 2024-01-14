@@ -2,7 +2,7 @@
 
 /* Import the google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 /* @import "~../node_modules/bootstrap/dist/css/bootstrap.min.css"; */
 
 /* p{
@@ -15,7 +15,7 @@
     padding: 0px;
     box-sizing: border-box;
 }
-
+*/
 body{
-    font-family: 'Lemon', serif;
-} */
+    font-family: 'Montserrat', sans-serif;
+} 

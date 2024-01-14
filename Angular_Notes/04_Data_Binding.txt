@@ -5,13 +5,16 @@
 #1 One Way Data Binding
 
 4 Types of One Way Data Binding
+
 From Component Class to View Template
+Component Class ---> View Template
 
 1. String Interpolation
 <p>Name: {{ name }}</p>
 
 2. Property Binding
 <img [src]="product.image">
+Any valid typescript expression can be used in the "double quotes" of Property Binding syntax
 
 3. Attribute Binding
 <input type="text" [attr.aria-disabled]="product.inStock">
@@ -21,9 +24,18 @@ Attribute: It represents an initial value and it does not change.
 Property: It represents the current value and it can change.
 
 From View Template to Component Class
+View Template ---> Component Class
+
 4. Event Binding
 
 <input (input)="onNameChanged($event)">
 Whenever an event occurs, an Event Object is generated which is accessible to us using the $event variable
 
+
 #2 Two Way Data Binding
+View Template ---> Component Class
+View Template <--- Component Class
+
+It is a combination of Property Binding and Event Binding.
+FormsModule is required to be imported before using ngModel
+<input [(ngModel)]="variableName">
