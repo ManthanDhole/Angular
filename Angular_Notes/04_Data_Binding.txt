@@ -23,4 +23,7 @@ Property: It represents the current value and it can change.
 From View Template to Component Class
 4. Event Binding
 
+<input (input)="onNameChanged($event)">
+Whenever an event occurs, an Event Object is generated which is accessible to us using the $event variable
+
 #2 Two Way Data Binding

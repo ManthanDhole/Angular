@@ -1,42 +1,65 @@
-<p>Name: Iphone</p>
+<!-- <p>Name: Iphone</p>
 <p>Color: Black</p>
 <p>Price: $999</p>
 <p>Discount: $786</p>
-<br>
+<br> -->
 <!-- String Interpolation: Component Class to View Template -->
-<p>Name: {{ name }}</p>
+<!-- <p>Name: {{ name }}</p>
 <p>Color: {{ color }}</p>
-<p>Price: {{ '$' + price }}</p> <!-- This is called as concatenation --> 
-<p>Discount: $786</p>
-<br>
+<p>Price: {{ '$' + price }}</p>  -->
+<!-- This is called as concatenation --> 
+<!-- <p>Discount: $786</p> -->
+<!-- <br> -->
 <!-- String Interpolation (Rendering Object Values) -->
-<p>Name: {{ product.name }}</p>
+<!-- <p>Name: {{ product.name }}</p>
 <p>Color: {{ product.color }}</p>
-<p>Price: ${{ product.price }}</p>
-<p>Discount: ${{ product.price - (product.price * product.discount) /100 }}</p> <!-- Expression can also be used in Interpolation -->
-<p>Discount: ${{ getDiscount() }}</p> <!-- A function can also be called using in the Interpolation -->
-<p>Discount: ${{ getDiscount().toFixed(2) }}</p> <!-- We can also use Typescript in built methods and functionalities -->
-<p>{{ product.inStock>0 ? 'Only ' + product.inStock + ' products are left' : 'Out of Stock' }}</p> <!-- We can also use Ternary operators in the interpolation -->
+<p>Price: ${{ product.price }}</p> -->
+<!-- <p>Discount: ${{ product.price - (product.price * product.discount) /100 }}</p> Expression can also be used in Interpolation -->
+<!-- <p>Discount: ${{ getDiscount() }}</p> A function can also be called using in the Interpolation -->
+<!-- <p>Discount: ${{ getDiscount().toFixed(2) }}</p> We can also use Typescript in built methods and functionalities -->
+<!-- <p>{{ product.inStock>0 ? 'Only ' + product.inStock + ' products are left' : 'Out of Stock' }}</p> We can also use Ternary operators in the interpolation -->
 
 
 <!-- Property Binding -->
 <!-- Getting values from Component to HTML page and assigning the values to attribute of DOM Elements -->
-<img src="/assets/iphone.png" alt="IPhone"  height="150px" width="150px"> <br>
-<img src={{product.image}} alt="IPhone" height="150px" width="150px"> <br>
-<img [src]="product.image" alt="IPhone" height="150px" width="150px">  <br>  <!-- Preferred way of Property Bindind --> 
+<!-- <img src="/assets/iphone.png" alt="IPhone"  height="150px" width="150px"> <br>
+<img src={{product.image}} alt="IPhone" height="150px" width="150px"> <br> -->
+<!-- <img [src]="product.image" alt="IPhone" height="150px" width="150px">  <br>  Preferred way of Property Bindind  -->
 
 
-<button [disabled]="!(product.inStock > 0)">Buy Now</button>
-<br>
-<input type="text" [value]="customerName" placeholder="Customer Name"> <br>
-<input type="text" bind-value="customerName" placeholder="Customer Name"> <!-- We can also use bind-attribute syntax for Property Bindin -->
-<br>
+<!-- <button [disabled]="!(product.inStock > 0)">Buy Now</button> -->
+<!-- <br> -->
+<!-- <input type="text" [value]="customerName" placeholder="Customer Name"> <br>
+<input type="text" bind-value="customerName" placeholder="Customer Name">  -->
+<!-- We can also use bind-attribute syntax for Property Bindin -->
+<!-- <br> -->
 
 <!-- HTML Attribute vs HTML Propery -->
 <!-- Attribute: It represents an initial value and it does not change -->
 <!-- Property: It represents the current value and it can change -->
 <!-- To bind an attribute, you need to specify the [attr.attribute-name]="value" syntax -->
-<input type="text" [value]="customerName" [attr.aria-disabled]="product.inStock" placeholder="Customer Name">
-
+<!-- <input type="text" [value]="customerName" [attr.aria-disabled]="product.inStock" placeholder="Customer Name">
 <br>
+<button [disabled]="!(product.inStock > 0)">Buy Now</button>
+<br> -->
+
 <!-- Event Binding: View Template to the Component Class -->
+<!-- <input type="text" placeholder="Customer Name" (input)="onNameChanged($event)"> -->
+<!-- Whenever an event occurs, an Event Object is generated which is accessible to us using the $event variable -->
+<!-- <br>
+<p>Name: {{ customerName }}</p>
+<br> -->
+
+<!-- Add to cart button -->
+
+<div class="singleProduct">
+    <img [src]="product.image" alt="IPhone" height="150px" width="150px">
+    <p>Name: {{ product.name }}</p>
+    <p>Color: {{ product.color }}</p>
+    <p>Price: ${{ product.price }}</p> 
+    <p>Discount: ${{ product.price - (product.price * product.discount) /100 }}</p>
+    <p>{{ product.inStock>0 ? 'Only ' + product.inStock + ' products are left' : 'Out of Stock' }}</p>
+    <button (click)="decreaseQuantity()" [disabled]="disableDecrementButton"> - </button>
+    <span> {{ addToCart }} </span>
+    <button (click)="increaseQuantity()" [disabled]="disableIncrementButton" > + </button>
+</div>
