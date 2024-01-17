@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { SearchComponent } from './search/search.component';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'product-list',
   standalone: true,
-  imports: [ SearchComponent ],
+  imports: [ SearchComponent, NgFor],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -64,4 +65,10 @@ export class ProductListComponent {
         this.disableIncrementButton = true;
       }
     }
+
+
+    //ngFor Directive
+    listOfStudents: string[] = [ "Mark", "Leo", "John", "Terry" ];
+    listOfLinks: any = [ "Google", "Youtube", "LinkedIn", "Instagram" ];
+
 }

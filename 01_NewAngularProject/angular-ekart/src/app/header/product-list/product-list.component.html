@@ -63,4 +63,19 @@
     <span> {{ addToCart }} </span>
     <button (click)="increaseQuantity()" [disabled]="disableIncrementButton" > + </button>
 </div> -->
-<app-search></app-search>
+<!-- <app-search></app-search> -->
+
+<!-- Learning Directives -->
+<!-- <div *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]">
+    <p>Current element is {{item}}</p>
+</div> -->
+
+<!-- Printing Name using a string[] -->
+<!-- <div *ngFor="let student of listOfStudents">
+    The name of the student is: {{student}}
+</div> -->
+
+<!-- Use anchor tag to display hyperlinks -->
+<div *ngFor="let link of listOfLinks">
+    <a href="#">{{link}}</a>
+</div>

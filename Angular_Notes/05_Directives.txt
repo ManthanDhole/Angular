@@ -1,0 +1,36 @@
+Directives
+A directive is an Instruction to the DOM
+Using directives we manipulate the DOM, change the behavior of the DOM, Add/Remove DOM Elements.
+
+3 Types of Directives
+Directive with Template
+1. Component Directive: It is the Angular Component, a directive with template which tell the DOM to Load/Render the entire view template
+                        associated with the selector of that Component.
+                        <app-home></app-home> => When Angular encounters this Component Directive in DOM, it will add all the DOM Elements
+                        associated with this selector.
+
+Directive without Template
+2. Attribute Directive: It is used to Change the Appearance or Behavior of a DOM element.
+                        <label translate localize="helloMsg"></label> => Renders: Hello There! 
+                        Here translate is used as an Attribute directive which has the code to print the value in form of text. 
+                        Built-in Attribute Directives: ng-Style, ng-Class used to change the appearance of the web page.
+3. Structural Directive: Used to Add/Remove, manipulate a DOM element on the Webpage.
+                        *ngIf, *ngFor, *ngSwitch, etc. Always use an Asterisk before using structural directive, this is done
+                        just to inform the DOM that a structural directive is being invoked which will manipulate the DOM.
+                        <div *ngIf="true/false"></div>
+
+A Directive is mostly used as an HTML Attribute and not as an HTML Element.
+
+Just like a component directive is also a class with @Directive decorator.
+
+HTML: <div changeToGreen> </div>
+TS:
+@Directive({
+    selector: '[changeToGreen]' => must be wrapped in [square brackets]
+})
+
+export class ChangeToGreen { }
+
+Types of Structural directives
+1. *ngFor: It iterates over a collection of data like array, list, etc. and creates an HTML element for each item in the list from an HTML element.
+It is used to repeat a portion of HTML template once per each item for an iterable list 
